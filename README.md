@@ -24,21 +24,23 @@
 
 ---
 
-## 🧩 טכנולוגיות עיקריות
+## טכנולוגיות עיקריות
 
 - **React Native** — פיתוח אפליקציות מובייל
 - **Zustand** — ניהול state גלובלי
 - **AsyncStorage** — שמירת נתונים לוקאלית
 - **React Navigation** — ניווט בין מסכים
+- **react-native-calendars** — לוח שנה
 - **react-native-svg** — אייקונים
 - **TypeScript** — טיפוסיות ובטיחות קוד
 
 ---
 
-## 📁 מבנה הפרויקט
+##  מבנה הפרויקט
 
 ```
 AppointmentApp/
+
 ├── App.tsx
 ├── package.json
 ├── src/
@@ -69,14 +71,7 @@ AppointmentApp/
 ## 📸 צילומי מסך
 
 
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/6b5d5725-7229-4b45-a548-734beef5daf8" />
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/872ad943-e64e-4769-9570-beccf2e5738b" />
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/a3aef7a8-597c-4b3b-82fc-5e14e0067567" />
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/5626ad28-924a-4158-af0c-322f783b8f95" />
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/401ed82b-0c01-4704-ad81-4ed561bac7c1" />
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/2e8fdce3-e655-42dd-b40d-615bb2d333af" />
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/2f4aad6c-2098-4d66-aa4f-cb7adfd02d80" />
-<img width="1080" height="2220" alt="image" src="https://github.com/user-attachments/assets/f97aa859-8020-4091-92df-202e0a9ab99d" />
+<img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/6b5d5725-7229-4b45-a548-734beef5daf8" /> <img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/872ad943-e64e-4769-9570-beccf2e5738b" /> <img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/a3aef7a8-597c-4b3b-82fc-5e14e0067567" /> <img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/5626ad28-924a-4158-af0c-322f783b8f95" /> <img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/401ed82b-0c01-4704-ad81-4ed561bac7c1" /> <img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/2e8fdce3-e655-42dd-b40d-615bb2d333af" /> <img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/2f4aad6c-2098-4d66-aa4f-cb7adfd02d80" /> <img width="540" height="1110" alt="image" src="https://github.com/user-attachments/assets/f97aa859-8020-4091-92df-202e0a9ab99d" />
 
 
 
