@@ -1,57 +1,55 @@
 # AppointmentApp
 
-אפליקציית React Native לזימון תורים רפואיים
+A React Native application for booking medical appointments
 
-הפרויקט מדגים ניהול State, שמירה לוקאלית, ניווט בין מסכים, ועבודה עם נתונים סטטיים.
+This project demonstrates state management, local data persistence, navigation between screens, and working with static data.
 
 ---
 
-## 🚀 איך מריצים?
+## 🚀 Getting Started
 
-1. התקנת תלויות:
+1. **Install dependencies:**
    ```bash
-      yarn
+   yarn
    ```
-2. הרצת האפליקציה:
-   - **אנדרואיד:**
+2. **Run the application:**
+   - **Android:**
      ```bash
-        yarn android
+     yarn android
      ```
    - **iOS:**
      ```bash
-        yarn ios
+     yarn ios
      ```
 
 ---
 
-## טכנולוגיות עיקריות
+## 🛠️ Main Technologies
 
-<ul dir="rtl" align="right">
-  <li><b>React Native</b> — פיתוח אפליקציות מובייל</li>
-  <li><b>Zustand</b> — ניהול state גלובלי</li>
-  <li><b>AsyncStorage</b> — שמירת נתונים לוקאלית</li>
-  <li><b>React Navigation</b> — ניווט בין מסכים</li>
-  <li><b>react-native-calendars</b> — לוח שנה</li>
-  <li><b>react-native-svg</b> — אייקונים</li>
-  <li><b>TypeScript</b> — טיפוסיות ובטיחות קוד</li>
-</ul>
+- **React Native** — Mobile app development
+- **Zustand** — Global state management
+- **AsyncStorage** — Local data storage
+- **React Navigation** — Screen navigation
+- **react-native-calendars** — Calendar component
+- **react-native-svg** — SVG icons
+- **TypeScript** — Type safety and robust code
+
 ---
 
-##  מבנה הפרויקט
+## 📁 Project Structure
 
 ```
 AppointmentApp/
-
 ├── App.tsx
 ├── package.json
 ├── src/
-│ ├── assets/        // איקונים ותמונות
-│ ├── components/    // קומפוננטים לשימוש חוזר (כפתור, טקסט)
-│ ├── data/          // נתונים סטטיים (יומנים)
-│ ├── navigation/    // הגדרות הניווט
-│ ├── screens/       // מסכים עיקריים (login, יומן, סיכום תור, ניהול תור)
-│ ├── store/         // ניהול נתונים - state management
-│ └── theme/         // צבעים, ריווחים
+│   ├── assets/        // Icons and images
+│   ├── components/    // Reusable components (Button, Text)
+│   ├── data/          // Static data (appointments)
+│   ├── navigation/    // Navigation configuration
+│   ├── screens/       // Main screens (login, calendar, summary, appointment management)
+│   ├── store/         // State management
+│   └── theme/         // Colors, spacing, typography
 ├── ios/
 ├── android/
 └── README.md
@@ -59,40 +57,31 @@ AppointmentApp/
 
 ---
 
-## 📝 הסבר טכני
+## 📝 Technical Overview
 
-<ul dir="rtl" align="right">
-  <li><b>Zustand</b> — נבחר בזכות פשטות, ביצועים, ושילוב קל עם AsyncStorage</li>
-  <li>כל נתוני היומנים סטטיים (אין חיבור לשרת).</li>
-  <li>כל מסך מופרד לקובץ עצמאי, קומפננטות בסיסיות בתיקיית components.</li>
-  <li>עיצוב בסיסי עם StyleSheet, צבעים ו-spacing מוגדרים ב-theme.</li>
-  <li>הוספתי כפתור Logout עם אייקון (פיצ'ר בונוס).</li>
+- **Zustand** was chosen for its simplicity, performance, and easy integration with AsyncStorage.
+- All appointment data is static (no server connection).
+- Each screen is separated into its own file; basic components are in the `components` directory.
+- Basic styling is handled with StyleSheet, with colors and spacing defined in the `theme` directory.
+- A Logout button with an icon is included as a bonus feature.
 
-</ul>
 ---
 
-## 📸 צילומי מסך
-
+## 📸 Screenshots
 
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/6b5d5725-7229-4b45-a548-734beef5daf8" />
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/872ad943-e64e-4769-9570-beccf2e5738b" />
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/a3aef7a8-597c-4b3b-82fc-5e14e0067567" /> 
-<img width="200"  alt="image" src="https://github.com/user-attachments/assets/5626ad28-924a-4158-af0c-322f783b8f95" /> 
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/401ed82b-0c01-4704-ad81-4ed561bac7c1" />
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/2e8fdce3-e655-42dd-b40d-615bb2d333af" /> 
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/2f4aad6c-2098-4d66-aa4f-cb7adfd02d80" /> 
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/f97aa859-8020-4091-92df-202e0a9ab99d" />
-
-
-
-
-
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/1cbddade-1396-4408-99c8-92cc648d4bb9" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/d47aae14-9aaf-4690-94c9-f3139979e336" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/2537cdde-9fed-4e86-ae38-fc331ed33251" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/4f5055b1-fb7f-4370-97fd-2489d963d3f6" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/b12b5eb9-279b-47ed-8936-f8f6ffe1cfd5" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/3de43331-9ed0-45f3-9a9a-b03a115e7bff" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/3ab44210-2437-4f2b-b2c4-4eee129f6845" />
 
 ---
 
-## 👨‍💻 הערות
+## 👨‍💻 Notes
 
-- הקפדתי על קוד קריא, שמות משתנים ברורים, והפרדה לוגית.
-- כל הודעת שגיאה/הצלחה מוצגת בעברית.
-- ניתן להרחיב את האפליקציה בקלות (הוספת מקצועות, חיבור לשרת וכו').
-
+- The code is clean, with clear variable names and logical separation.
+- All error/success messages are displayed in Hebrew (can be easily localized).
+- The app is easily extensible (e.g., adding professions, connecting to a server, etc.).
