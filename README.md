@@ -74,8 +74,8 @@ AppointmentApp/
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/d47aae14-9aaf-4690-94c9-f3139979e336" />
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/2537cdde-9fed-4e86-ae38-fc331ed33251" />
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/4f5055b1-fb7f-4370-97fd-2489d963d3f6" />
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/b12b5eb9-279b-47ed-8936-f8f6ffe1cfd5" />
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/3de43331-9ed0-45f3-9a9a-b03a115e7bff" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/d6cc5857-e764-41ab-9c95-609435bdaa01" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/ee108c97-53a6-4864-88ae-b0a29dd1650d" />
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/3ab44210-2437-4f2b-b2c4-4eee129f6845" />
 
 ---
