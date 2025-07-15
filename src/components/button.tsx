@@ -31,10 +31,13 @@ export const SecondaryButton = ({
 }: ButtonProps) => (
   <TouchableOpacity
     onPress={onPress}
-    style={selected ? styles.selectedButton : styles.secondaryButton}
+    style={[
+      styles.secondaryButton,
+      selected && { backgroundColor: colors.secondary },
+    ]}
   >
     <Text
-      style={selected ? styles.selectedSecondaryText : styles.secondaryText}
+      style={[styles.secondaryText, selected && { color: colors.background }]}
     >
       {title}
     </Text>
@@ -59,17 +62,15 @@ const styles = StyleSheet.create({
     padding: spacing.sm,
     backgroundColor: colors.background,
   },
-  selectedButton: {
-    ...layout,
-    padding: spacing.sm,
-    backgroundColor: colors.secondary,
-  },
+
   secondaryText: {
     color: colors.secondary,
     textAlign: 'center',
     fontSize: 16,
   },
-  selectedSecondaryText: {
-    color: colors.background,
+  icon: {
+    borderRadius: 25,
+    padding: spacing.sm,
+    backgroundColor: colors.primary,
   },
 });
