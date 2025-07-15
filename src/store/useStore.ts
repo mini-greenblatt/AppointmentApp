@@ -7,7 +7,7 @@ type User = { userName: string; password: string };
 
 type State = {
   profession: string | null;
-  setProfession: (profession: string) => void;
+  setProfession: (profession: string | null) => void;
   myAppointment: Appointment | null;
   setMyAppointment: (myAppointment: Appointment) => void;
   user: User | null;

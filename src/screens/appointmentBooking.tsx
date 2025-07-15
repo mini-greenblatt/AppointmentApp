@@ -27,10 +27,10 @@ export const AppointmentBooking = (): JSX.Element => {
         <Picker
           selectedValue={profession}
           onValueChange={itemValue => {
-            if (itemValue) setProfession(itemValue);
+            setProfession(itemValue);
           }}
         >
-          <Picker.Item label="בחר/י מקצוע הרופא" />
+          <Picker.Item label="בחר/י מקצוע הרופא" value={null} />
           {professions.map(prof => (
             <Picker.Item key={prof} label={prof} value={prof} />
           ))}
