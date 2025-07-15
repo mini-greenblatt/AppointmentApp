@@ -13,13 +13,15 @@ export const AppointmentSummary = (): JSX.Element => {
   const appointment = useStore(state => state.myAppointment);
   const user = useStore(state => state.user);
   const saveAppointment = useStore(state => state.saveAppointment);
-  const { navigate } =
+  const { reset } =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   //save the appointment in asyncStorage
   const onSave = () => {
     saveAppointment();
-    navigate(ROUTES.EXISTING_APPOINTMENT);
+    reset({
+      routes: [{ name: ROUTES.LOGIN }, { name: ROUTES.EXISTING_APPOINTMENT }],
+    });
   };
 
   if (!appointment || !user) {

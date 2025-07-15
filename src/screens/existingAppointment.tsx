@@ -12,13 +12,15 @@ export const ExistingAppointment = (): JSX.Element => {
   const appointment = useStore(state => state.myAppointment);
   const cancelAppointment = useStore(state => state.cancelAppointment);
 
-  const { navigate } = useNavigation<NavigationProps>();
+  const { reset, navigate } = useNavigation<NavigationProps>();
 
   //on press ok button on cancel appointment alert
   const onCancelAppointment = async () => {
     await cancelAppointment();
     Alert.alert('התור בוטל בהצלחה!');
-    navigate(ROUTES.APPOINTMENT_BOOKING);
+    reset({
+      routes: [{ name: ROUTES.LOGIN }, { name: ROUTES.APPOINTMENT_BOOKING }],
+    });
   };
 
   //on press cancel button on screen
@@ -42,7 +44,9 @@ export const ExistingAppointment = (): JSX.Element => {
   };
 
   const onUpdate = () => {
-    navigate(ROUTES.CALENDAR, { profession: appointment?.type ?? '' });
+    navigate(ROUTES.CALENDAR, {
+      profession: appointment?.type ?? '',
+    });
   };
 
   return (

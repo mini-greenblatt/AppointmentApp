@@ -68,8 +68,13 @@ export const useStore = create<State>((set, get) => ({
       'appointment',
       JSON.stringify(get().myAppointment),
     );
+    set(
+      produce<State>(state => {
+        state.profession = null;
+      }),
+    );
   },
-  // פונקציית התנתקות: מוחקת משתמש מה-AsyncStorage ומאפסת state
+  //on logout reset all the data, in asyncStorage and zustand
   logout: async () => {
     await AsyncStorage.removeItem('user');
     await AsyncStorage.removeItem('appointment');
@@ -77,6 +82,7 @@ export const useStore = create<State>((set, get) => ({
       produce<State>(state => {
         state.user = null;
         state.myAppointment = null;
+        state.profession = null;
       }),
     );
   },
