@@ -3,13 +3,14 @@ export type Appointment = {
   date: string;
   hour: string;
 };
-type a = {
+
+type Appointments = {
   [type: string]: {
     [date: string]: string[];
   };
 };
 
-export const aviableAppointments: a = {
+export const aviableAppointments: Appointments = {
   'רופא אלרגיה': {
     '19/07/2025': ['08:00', '11:30', '14:30'],
     '20/07/2025': ['09:00', '13:00', '16:30'],

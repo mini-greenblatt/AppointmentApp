@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   hoursList: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     flexWrap: 'wrap',
     justifyContent: 'center',
   },
