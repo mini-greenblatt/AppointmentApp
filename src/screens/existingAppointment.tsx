@@ -1,23 +1,44 @@
-import React from 'react';
-import { Button, View, Alert, StyleSheet } from 'react-native';
+import React, { JSX } from 'react';
+import { View, Alert, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useStore } from '../store/useStore';
 import { NavigationProps, ROUTES } from '../navigation/appNavigator';
-import { useNavigation } from '@react-navigation/native';
 import { Text } from '../components/text';
 import { PrimaryButton, SecondaryButton } from '../components/button';
 import colors from '../theme/colors';
 import spacing from '../theme/spacing';
 
-export const ExistingAppointment = () => {
+export const ExistingAppointment = (): JSX.Element => {
   const appointment = useStore(state => state.myAppointment);
   const cancelAppointment = useStore(state => state.cancelAppointment);
 
   const { navigate } = useNavigation<NavigationProps>();
 
-  const onCancel = () => {
-    cancelAppointment();
+  //on press ok button on cancel appointment alert
+  const onCancelAppointment = async () => {
+    await cancelAppointment();
     Alert.alert('התור בוטל בהצלחה!');
     navigate(ROUTES.APPOINTMENT_BOOKING);
+  };
+
+  //on press cancel button on screen
+  const onCancel = () => {
+    Alert.alert(
+      'אישור ביטול',
+      'האם אתה בטוח שברצונך לבטל את התור?',
+      [
+        {
+          text: 'לא',
+          style: 'cancel',
+        },
+        {
+          text: 'כן',
+          onPress: onCancelAppointment,
+          style: 'destructive',
+        },
+      ],
+      { cancelable: true },
+    );
   };
 
   const onUpdate = () => {
@@ -25,27 +46,28 @@ export const ExistingAppointment = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.screen}>
       {appointment !== null && (
-        <View style={styles.detailsContainer}>
-          <Text variant="header">פרטי תור קיים:</Text>
-          <Text variant="body">{appointment.type}</Text>
-          <Text variant="body">ביום {appointment.date}</Text>
-          <Text variant="body">בשעה {appointment.hour}</Text>
+        <View style={styles.container}>
+          <View style={styles.detailsContainer}>
+            <Text variant="header">פרטי תור קיים:</Text>
+            <Text variant="body">{appointment.type}</Text>
+            <Text variant="body">ביום {appointment.date}</Text>
+            <Text variant="body">בשעה {appointment.hour}</Text>
+          </View>
+          <PrimaryButton title="לביטול התור" onPress={onCancel} />
+          <SecondaryButton title="לעדכון התור" onPress={onUpdate} />
         </View>
       )}
-      <PrimaryButton title="לביטול התור" onPress={onCancel} />
-      <SecondaryButton title="לעדכון התור" onPress={onUpdate} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: colors.background, padding: spacing.md },
   container: {
-    backgroundColor: colors.background,
     flex: 1,
-    padding: spacing.lg,
-    gap: spacing.sm,
+    gap: spacing.md,
   },
   detailsContainer: {
     flex: 1,

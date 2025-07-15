@@ -15,6 +15,7 @@ type State = {
   cancelAppointment: () => void;
   addAppointment: (newAppointment: Appointment) => void;
   saveAppointment: () => void;
+  logout: () => void;
 };
 
 export const useStore = create<State>((set, get) => ({
@@ -66,6 +67,17 @@ export const useStore = create<State>((set, get) => ({
     await AsyncStorage.setItem(
       'appointment',
       JSON.stringify(get().myAppointment),
+    );
+  },
+  // פונקציית התנתקות: מוחקת משתמש מה-AsyncStorage ומאפסת state
+  logout: async () => {
+    await AsyncStorage.removeItem('user');
+    await AsyncStorage.removeItem('appointment');
+    set(
+      produce<State>(state => {
+        state.user = null;
+        state.myAppointment = null;
+      }),
     );
   },
 }));

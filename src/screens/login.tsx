@@ -1,5 +1,5 @@
-import { JSX, useState, useEffect, useRef } from 'react';
-import { Button, StyleSheet, TextInput, View } from 'react-native';
+import React, { useState, useEffect, useRef, JSX } from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
 import colors from '../theme/colors';
 import { useStore } from '../store/useStore';
 import { useNavigation } from '@react-navigation/native';

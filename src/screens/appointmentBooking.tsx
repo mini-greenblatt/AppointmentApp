@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { aviableAppointments } from '../data/appointment';
 import { useStore } from '../store/useStore';
@@ -9,19 +9,16 @@ import { ROUTES, RootStackParamList } from '../navigation/appNavigator';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import layout from '../theme/layout';
+import spacing from '../theme/spacing';
 
 const professions = Object.keys(aviableAppointments);
 
-export const AppointmentBooking = () => {
+export const AppointmentBooking = (): JSX.Element => {
   const setProfession = useStore(state => state.setProfession);
   const profession = useStore(state => state.profession);
 
   const { navigate } =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-
-  const handleProfessionSelect = (profession: string) => {
-    setProfession(profession);
-  };
 
   return (
     <View style={styles.container}>
@@ -29,7 +26,7 @@ export const AppointmentBooking = () => {
         <Picker
           selectedValue={profession}
           onValueChange={itemValue => {
-            if (itemValue) handleProfessionSelect(itemValue);
+            if (itemValue) setProfession(itemValue);
           }}
         >
           <Picker.Item label="בחר/י מקצוע הרופא" />
@@ -52,10 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    padding: 20,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    gap: 20,
+    padding: spacing.lg,
   },
   pickerContainer: {
     width: '100%',

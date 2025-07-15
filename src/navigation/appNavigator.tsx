@@ -1,17 +1,18 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import {
   NativeStackNavigationProp,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
+import { NavigationProp, Route } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+
 import { ExistingAppointment } from '../screens/existingAppointment';
 import { Login } from '../screens/login';
 import { AppointmentBooking } from '../screens/appointmentBooking';
-import { AppointmentSummery } from '../screens/appointmentSummery';
+import { AppointmentSummary } from '../screens/appointmentSummary';
 import { Calendar } from '../screens/calendar';
-import { NavigationProp, Route } from '@react-navigation/native';
 import { useStore } from '../store/useStore';
-import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native';
 import { Text } from '../components/text';
 import LogoutIcon from '../assets/icons/logout.svg';
 
@@ -20,7 +21,7 @@ export enum ROUTES {
   APPOINTMENT_BOOKING = 'APPOINTMENT_BOOKING',
   CALENDAR = 'CALENDAR',
   EXISTING_APPOINTMENT = 'EXISTING_APPOINTMENT',
-  APPOINTMENT_SUMMERY = 'APPOINTMENT_SUMMERY',
+  APPOINTMENT_SUMMARY = 'APPOINTMENT_SUMMARY',
 }
 
 export type RootStackParamList = {
@@ -28,7 +29,7 @@ export type RootStackParamList = {
   [ROUTES.APPOINTMENT_BOOKING]: undefined;
   [ROUTES.CALENDAR]: { profession: string };
   [ROUTES.EXISTING_APPOINTMENT]: undefined;
-  [ROUTES.APPOINTMENT_SUMMERY]: undefined;
+  [ROUTES.APPOINTMENT_SUMMARY]: undefined;
 };
 
 export type NavigationProps = NavigationProp<RootStackParamList>;
@@ -60,7 +61,9 @@ const LogoutButton = () => {
 
 export const RootNavigation = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{ headerRight: () => <LogoutButton />, headerShown: true }}
+    >
       <Stack.Screen
         name={ROUTES.LOGIN}
         component={Login}
@@ -70,27 +73,21 @@ export const RootNavigation = () => {
         name={ROUTES.EXISTING_APPOINTMENT}
         component={ExistingAppointment}
         options={{
-          headerShown: true,
           title: 'פרטי תור',
-          headerRight: () => <LogoutButton />,
         }}
       />
       <Stack.Screen
         name={ROUTES.APPOINTMENT_BOOKING}
         component={AppointmentBooking}
         options={{
-          headerShown: true,
           title: 'זימון תורים',
-          headerRight: () => <LogoutButton />,
         }}
       />
       <Stack.Screen
-        name={ROUTES.APPOINTMENT_SUMMERY}
-        component={AppointmentSummery}
+        name={ROUTES.APPOINTMENT_SUMMARY}
+        component={AppointmentSummary}
         options={{
-          headerShown: true,
           title: 'אישור תור',
-          headerRight: () => <LogoutButton />,
         }}
       />
       <Stack.Screen
@@ -98,7 +95,6 @@ export const RootNavigation = () => {
         component={Calendar}
         options={{
           headerTitle: () => <></>,
-          headerRight: () => <LogoutButton />,
         }}
       />
     </Stack.Navigator>

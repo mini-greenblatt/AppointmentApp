@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useStore } from '../store/useStore';
 import { PrimaryButton } from '../components/button';
@@ -7,10 +7,9 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../theme/colors';
 import spacing from '../theme/spacing';
-import layout from '../theme/layout';
 import { Text } from '../components/text';
 
-export const AppointmentSummery = () => {
+export const AppointmentSummary = (): JSX.Element => {
   const appointment = useStore(state => state.myAppointment);
   const user = useStore(state => state.user);
   const saveAppointment = useStore(state => state.saveAppointment);
@@ -31,30 +30,36 @@ export const AppointmentSummery = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Text variant="header">נא אשר את פרטי התור</Text>
-      <Text variant="label">
-        שם המטופל: <Text variant="value">{user.userName}</Text>
-      </Text>
-      <Text variant="label">
-        סוג רופא: <Text variant="value">{appointment.type}</Text>
-      </Text>
-      <Text variant="label">
-        תאריך: <Text variant="value">{appointment.date}</Text>
-      </Text>
-      <Text variant="label">
-        שעה: <Text variant="value">{appointment.hour}</Text>
-      </Text>
+    <View style={styles.screen}>
+      <View style={styles.container}>
+        <Text variant="header">פרטי התור:</Text>
+        <Text variant="label">
+          שם המטופל: <Text variant="value">{user.userName}</Text>
+        </Text>
+        <Text variant="label">
+          סוג רופא: <Text variant="value">{appointment.type}</Text>
+        </Text>
+        <Text variant="label">
+          תאריך: <Text variant="value">{appointment.date}</Text>
+        </Text>
+        <Text variant="label">
+          שעה: <Text variant="value">{appointment.hour}</Text>
+        </Text>
+      </View>
       <PrimaryButton title="זימון התור" onPress={onSave} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    padding: spacing.md,
+    backgroundColor: colors.background,
+  },
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background,
+    padding: spacing.lg,
+    alignItems: 'flex-start',
   },
 });
