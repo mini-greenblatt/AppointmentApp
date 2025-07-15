@@ -1,15 +1,16 @@
 import React, { JSX } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { aviableAppointments } from '../data/appointment';
-import { useStore } from '../store/useStore';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Picker } from '@react-native-picker/picker';
-import colors from '../theme/colors';
+
+import { useStore } from '../store/useStore';
 import { SecondaryButton } from '../components/button';
 import { ROUTES, RootStackParamList } from '../navigation/appNavigator';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
+import { aviableAppointments } from '../data/appointment';
 import layout from '../theme/layout';
 import spacing from '../theme/spacing';
+import colors from '../theme/colors';
 
 const professions = Object.keys(aviableAppointments);
 

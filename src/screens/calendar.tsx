@@ -1,18 +1,20 @@
-import dayjs from 'dayjs';
 import React, { useState, useMemo, useEffect, JSX } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Calendar as RNCalendar } from 'react-native-calendars';
-import { useStore } from '../store/useStore';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Calendar as RNCalendar } from 'react-native-calendars';
+import dayjs from 'dayjs';
+
+import { useStore } from '../store/useStore';
 import {
   ROUTES,
   RootStackParamList,
   RouteProps,
 } from '../navigation/appNavigator';
-import colors from '../theme/colors';
+import { Text } from '../components/text';
+import { PrimaryButton, SecondaryButton } from '../components/button';
 import { aviableAppointments } from '../data/appointment';
-import { SecondaryButton } from '../components/button';
+import colors from '../theme/colors';
 import spacing from '../theme/spacing';
 
 type DayProps = {
@@ -43,14 +45,7 @@ const DayComponent = ({
         opacity: isEnabled ? 1 : 0.3,
       }}
     >
-      <Text
-        style={{
-          color: colors.text,
-          textAlign: 'center',
-        }}
-      >
-        {day}
-      </Text>
+      <Text>{day}</Text>
     </TouchableOpacity>
   );
 };
@@ -88,7 +83,7 @@ export const Calendar = (): JSX.Element => {
       };
     });
 
-    // סימון היום הנוכחי (גם אם לא מאופשר)
+    // highlight the current day (even if not enabled)
     if (todayDate && !marks[todayDate]) {
       marks[todayDate] = {
         selected: false,
@@ -117,7 +112,6 @@ export const Calendar = (): JSX.Element => {
       hour: item,
     });
     setSelectedHour(item);
-    navigate(ROUTES.APPOINTMENT_SUMMARY);
   };
 
   const onDayPress = (dateString: string) => {
@@ -132,7 +126,7 @@ export const Calendar = (): JSX.Element => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>תורים זמינים ל{profession}</Text>
+      <Text variant="header">תורים זמינים ל{profession}</Text>
       <RNCalendar
         style={{
           width: '100%',
@@ -179,6 +173,14 @@ export const Calendar = (): JSX.Element => {
           ))}
         </View>
       )}
+      {selectedHour && (
+        <View style={styles.button}>
+          <PrimaryButton
+            title="לזימון התור"
+            onPress={() => navigate(ROUTES.APPOINTMENT_SUMMARY)}
+          />
+        </View>
+      )}
     </View>
   );
 };
@@ -192,12 +194,15 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 12,
     textAlign: 'center',
   },
   hoursList: {
     flexDirection: 'row-reverse',
     flexWrap: 'wrap',
     justifyContent: 'center',
+  },
+  button: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
 });

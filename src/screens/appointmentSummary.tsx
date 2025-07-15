@@ -1,10 +1,10 @@
 import React, { JSX } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 import { useStore } from '../store/useStore';
 import { PrimaryButton } from '../components/button';
 import { ROUTES, RootStackParamList } from '../navigation/appNavigator';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
 import colors from '../theme/colors';
 import spacing from '../theme/spacing';
 import { Text } from '../components/text';
@@ -16,6 +16,7 @@ export const AppointmentSummary = (): JSX.Element => {
   const { navigate } =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
+  //save the appointment in asyncStorage
   const onSave = () => {
     saveAppointment();
     navigate(ROUTES.EXISTING_APPOINTMENT);
@@ -32,12 +33,9 @@ export const AppointmentSummary = (): JSX.Element => {
   return (
     <View style={styles.screen}>
       <View style={styles.container}>
-        <Text variant="header">פרטי התור:</Text>
+        <Text variant="header">פרטי התור שזומן:</Text>
         <Text variant="label">
-          שם המטופל: <Text variant="value">{user.userName}</Text>
-        </Text>
-        <Text variant="label">
-          סוג רופא: <Text variant="value">{appointment.type}</Text>
+          למקצוע: <Text variant="value">{appointment.type}</Text>
         </Text>
         <Text variant="label">
           תאריך: <Text variant="value">{appointment.date}</Text>
@@ -45,8 +43,11 @@ export const AppointmentSummary = (): JSX.Element => {
         <Text variant="label">
           שעה: <Text variant="value">{appointment.hour}</Text>
         </Text>
+        <Text variant="label">
+          שם המטופל: <Text variant="value">{user.userName}</Text>
+        </Text>
       </View>
-      <PrimaryButton title="זימון התור" onPress={onSave} />
+      <PrimaryButton title="אישור הזימון" onPress={onSave} />
     </View>
   );
 };

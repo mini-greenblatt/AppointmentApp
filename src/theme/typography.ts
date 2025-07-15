@@ -1,12 +1,15 @@
+import spacing from './spacing';
+
 const typography = {
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 24,
+    marginBottom: spacing.md,
+    textAlign: 'center',
   },
   label: {
     fontSize: 18,
-    marginBottom: 12,
+    marginVertical: spacing.xs,
     textAlign: 'right',
   },
   value: {

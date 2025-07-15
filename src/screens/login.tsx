@@ -65,6 +65,7 @@ export const Login = (): JSX.Element => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

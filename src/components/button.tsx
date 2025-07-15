@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import React, { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import colors from '../theme/colors';
 import spacing from '../theme/spacing';
 import layout from '../theme/layout';
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     padding: spacing.sm,
     backgroundColor: colors.background,
   },
-
   secondaryText: {
     color: colors.secondary,
     textAlign: 'center',

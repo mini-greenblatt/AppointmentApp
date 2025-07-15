@@ -62,7 +62,10 @@ const LogoutButton = () => {
 export const RootNavigation = () => {
   return (
     <Stack.Navigator
-      screenOptions={{ headerRight: () => <LogoutButton />, headerShown: true }}
+      screenOptions={{
+        headerRight: () => <LogoutButton />,
+        headerShown: true,
+      }}
     >
       <Stack.Screen
         name={ROUTES.LOGIN}
@@ -73,21 +76,21 @@ export const RootNavigation = () => {
         name={ROUTES.EXISTING_APPOINTMENT}
         component={ExistingAppointment}
         options={{
-          title: 'פרטי תור',
+          headerTitle: () => <></>,
         }}
       />
       <Stack.Screen
         name={ROUTES.APPOINTMENT_BOOKING}
         component={AppointmentBooking}
         options={{
-          title: 'זימון תורים',
+          headerTitle: () => <></>,
         }}
       />
       <Stack.Screen
         name={ROUTES.APPOINTMENT_SUMMARY}
         component={AppointmentSummary}
         options={{
-          title: 'אישור תור',
+          headerTitle: () => <></>,
         }}
       />
       <Stack.Screen
