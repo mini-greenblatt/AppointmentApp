@@ -1,0 +1,60 @@
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { useStore } from '../store/useStore';
+import { PrimaryButton } from '../components/button';
+import { ROUTES, RootStackParamList } from '../navigation/appNavigator';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import colors from '../theme/colors';
+import spacing from '../theme/spacing';
+import layout from '../theme/layout';
+import { Text } from '../components/text';
+
+export const AppointmentSummery = () => {
+  const appointment = useStore(state => state.myAppointment);
+  const user = useStore(state => state.user);
+  const saveAppointment = useStore(state => state.saveAppointment);
+  const { navigate } =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const onSave = () => {
+    saveAppointment();
+    navigate(ROUTES.EXISTING_APPOINTMENT);
+  };
+
+  if (!appointment || !user) {
+    return (
+      <View style={styles.container}>
+        <Text variant="header">אין נתוני תור להצגה</Text>
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text variant="header">נא אשר את פרטי התור</Text>
+      <Text variant="label">
+        שם המטופל: <Text variant="value">{user.userName}</Text>
+      </Text>
+      <Text variant="label">
+        סוג רופא: <Text variant="value">{appointment.type}</Text>
+      </Text>
+      <Text variant="label">
+        תאריך: <Text variant="value">{appointment.date}</Text>
+      </Text>
+      <Text variant="label">
+        שעה: <Text variant="value">{appointment.hour}</Text>
+      </Text>
+      <PrimaryButton title="זימון התור" onPress={onSave} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.background,
+  },
+});
