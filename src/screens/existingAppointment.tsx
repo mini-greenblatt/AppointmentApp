@@ -18,9 +18,6 @@ export const ExistingAppointment = (): JSX.Element => {
   const onCancelAppointment = async () => {
     await cancelAppointment();
     Alert.alert('התור בוטל בהצלחה!');
-    reset({
-      routes: [{ name: ROUTES.LOGIN }, { name: ROUTES.APPOINTMENT_BOOKING }],
-    });
   };
 
   //on press cancel button on screen
@@ -49,9 +46,15 @@ export const ExistingAppointment = (): JSX.Element => {
     });
   };
 
+  const onCreateNew = () => {
+    reset({
+      routes: [{ name: ROUTES.LOGIN }, { name: ROUTES.APPOINTMENT_BOOKING }],
+    });
+  };
+
   return (
     <View style={styles.screen}>
-      {appointment !== null && (
+      {appointment !== null ? (
         <View style={styles.container}>
           <View style={styles.detailsContainer}>
             <Text variant="header">פרטי תור קיים:</Text>
@@ -62,13 +65,24 @@ export const ExistingAppointment = (): JSX.Element => {
           <PrimaryButton title="לביטול התור" onPress={onCancel} />
           <SecondaryButton title="לעדכון התור" onPress={onUpdate} />
         </View>
+      ) : (
+        <View style={styles.container}>
+          <View style={styles.detailsContainer}>
+            <Text variant="header">אין לך תורים במערכת</Text>
+          </View>
+          <PrimaryButton title=" לזימון תור חדש" onPress={onCreateNew} />
+        </View>
       )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.background, padding: spacing.md },
+  screen: {
+    flex: 1,
+    backgroundColor: colors.background,
+    padding: spacing.md,
+  },
   container: {
     flex: 1,
     gap: spacing.md,
@@ -77,5 +91,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: spacing.lg,
     gap: spacing.xs,
+    alignItems: 'flex-start',
   },
 });
