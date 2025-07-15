@@ -67,7 +67,7 @@ export const ExistingAppointment = (): JSX.Element => {
         </View>
       ) : (
         <View style={styles.container}>
-          <View style={styles.detailsContainer}>
+          <View style={{ flex: 1 }}>
             <Text variant="header">אין לך תורים במערכת</Text>
           </View>
           <PrimaryButton title=" לזימון תור חדש" onPress={onCreateNew} />
